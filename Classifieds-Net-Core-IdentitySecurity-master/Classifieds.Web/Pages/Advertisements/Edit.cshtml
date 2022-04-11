@@ -1,0 +1,50 @@
+﻿@page
+@model Classifieds.Web.Pages.Advertisements.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Advertisement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Advertisement.Id" />
+            <div class="form-group">
+                <label asp-for="Advertisement.Title" class="control-label"></label>
+                <input asp-for="Advertisement.Title" class="form-control" />
+                <span asp-validation-for="Advertisement.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.Description" class="control-label"></label>
+                <input asp-for="Advertisement.Description" class="form-control" />
+                <span asp-validation-for="Advertisement.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.Price" class="control-label"></label>
+                <input asp-for="Advertisement.Price" class="form-control" />
+                <span asp-validation-for="Advertisement.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.CategoryId" class="control-label"></label>
+                <select asp-for="Advertisement.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="Advertisement.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
